@@ -38,7 +38,7 @@
 
   setTimeout(function(){
     testPerf();
-  }, 5000);
+  }, 1000);
 
   
 })(window.React, window.NREUM);

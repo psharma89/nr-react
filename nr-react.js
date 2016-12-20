@@ -13,7 +13,7 @@
   }
   function testPerf(){
       // do whatever you like here
-      var myInteraction = newrelic.interaction().setName('tracing').save();
+      var myInteraction = newrelic.interaction().setName('tracing');
       React.addons.Perf.start();
       console.log('tracing');
       setTimeout(function(){
@@ -25,10 +25,10 @@
           if (typeof NREUM !== 'undefined' && typeof NREUM.addPageAction === 'function' ) {
             console.log('sending');
             myInteraction.setAttribute(map[i]['Owner > component'], map[i]['Wasted time (ms)']);
-            myInteraction.setAttribute('Instances: ' + map[i]['Owner > component'],map[i]['Instances']]);
+            myInteraction.setAttribute('Instances: ' + map[i]['Owner > component'],map[i]['Instances']);
           }
         }
-        myInteraction.end();
+        myInteraction.save().end();
         setTimeout(testPerf, 1000);
 
       }, 10000);
